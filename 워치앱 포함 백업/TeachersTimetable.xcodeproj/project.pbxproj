@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0200010000000000000001 /* TeachersTimetableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100010000000000000001 /* TeachersTimetableApp.swift */; };
+		AA0200020000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100020000000000000001 /* ContentView.swift */; };
+		AA0200030000000000000001 /* TeachersTimetableWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100030000000000000001 /* TeachersTimetableWatchApp.swift */; };
+		AA0200040000000000000001 /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100040000000000000001 /* WatchContentView.swift */; };
+		AA0200050000000000000001 /* TeachersTimetable Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AA0100060000000000000001 /* TeachersTimetable Watch App.app */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA0200070000000000000001 /* OverviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100090000000000000001 /* OverviewTabView.swift */; };
+		AA0200080000000000000001 /* EditorTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000A0000000000000001 /* EditorTabView.swift */; };
+		AA0200090000000000000001 /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000B0000000000000001 /* SettingsTabView.swift */; };
+		AA02000A0000000000000001 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000C0000000000000001 /* Components.swift */; };
+		AA02000B0000000000000001 /* TimetableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000D0000000000000001 /* TimetableStore.swift */; };
+		AA02000C0000000000000001 /* WatchConnectivityBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000E0000000000000001 /* WatchConnectivityBridge.swift */; };
+		AA02000D0000000000000001 /* TimetableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000F0000000000000001 /* TimetableModels.swift */; };
+		AA02000E0000000000000001 /* SchedulePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100100000000000000001 /* SchedulePlanner.swift */; };
+		AA02000F0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0100130000000000000001 /* Assets.xcassets */; };
+		AA0200100000000000000001 /* WatchTimetableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100110000000000000001 /* WatchTimetableStore.swift */; };
+		AA0200110000000000000001 /* WatchNotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100120000000000000001 /* WatchNotificationScheduler.swift */; };
+		AA0200120000000000000001 /* TimetableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01000F0000000000000001 /* TimetableModels.swift */; };
+		AA0200130000000000000001 /* SchedulePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0100100000000000000001 /* SchedulePlanner.swift */; };
+		AA0200140000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0100140000000000000001 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA0400040000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0400020000000000000001;
+			remoteInfo = "TeachersTimetable Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA0300040000000000000001 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				AA0200050000000000000001 /* TeachersTimetable Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AA0100010000000000000001 /* TeachersTimetableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersTimetableApp.swift; sourceTree = "<group>"; };
+		AA0100020000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0100030000000000000001 /* TeachersTimetableWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersTimetableWatchApp.swift; sourceTree = "<group>"; };
+		AA0100040000000000000001 /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
+		AA0100050000000000000001 /* TeachersTimetable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeachersTimetable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0100060000000000000001 /* TeachersTimetable Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TeachersTimetable Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0100080000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0100090000000000000001 /* OverviewTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTabView.swift; sourceTree = "<group>"; };
+		AA01000A0000000000000001 /* EditorTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorTabView.swift; sourceTree = "<group>"; };
+		AA01000B0000000000000001 /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
+		AA01000C0000000000000001 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		AA01000D0000000000000001 /* TimetableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableStore.swift; sourceTree = "<group>"; };
+		AA01000E0000000000000001 /* WatchConnectivityBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityBridge.swift; sourceTree = "<group>"; };
+		AA01000F0000000000000001 /* TimetableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableModels.swift; sourceTree = "<group>"; };
+		AA0100100000000000000001 /* SchedulePlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulePlanner.swift; sourceTree = "<group>"; };
+		AA0100110000000000000001 /* WatchTimetableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTimetableStore.swift; sourceTree = "<group>"; };
+		AA0100120000000000000001 /* WatchNotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchNotificationScheduler.swift; sourceTree = "<group>"; };
+		AA0100130000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA0100140000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0300020000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0300060000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000007 /* Shared */,
+				AA0000000000000000000004 /* TeachersTimetable */,
+				AA0000000000000000000006 /* TeachersTimetable Watch App */,
+				AA0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0100050000000000000001 /* TeachersTimetable.app */,
+				AA0100060000000000000001 /* TeachersTimetable Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000004 /* TeachersTimetable */ = {
+			isa = PBXGroup;
+			children = (
+				AA0100010000000000000001 /* TeachersTimetableApp.swift */,
+				AA0100020000000000000001 /* ContentView.swift */,
+				AA0100090000000000000001 /* OverviewTabView.swift */,
+				AA01000A0000000000000001 /* EditorTabView.swift */,
+				AA01000B0000000000000001 /* SettingsTabView.swift */,
+				AA01000C0000000000000001 /* Components.swift */,
+				AA01000D0000000000000001 /* TimetableStore.swift */,
+				AA01000E0000000000000001 /* WatchConnectivityBridge.swift */,
+				AA0100130000000000000001 /* Assets.xcassets */,
+			);
+			path = TeachersTimetable;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000006 /* TeachersTimetable Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				AA0100030000000000000001 /* TeachersTimetableWatchApp.swift */,
+				AA0100040000000000000001 /* WatchContentView.swift */,
+				AA0100110000000000000001 /* WatchTimetableStore.swift */,
+				AA0100120000000000000001 /* WatchNotificationScheduler.swift */,
+				AA0100140000000000000001 /* Assets.xcassets */,
+				AA0100080000000000000001 /* Info.plist */,
+			);
+			path = "TeachersTimetable Watch App";
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000007 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				AA01000F0000000000000001 /* TimetableModels.swift */,
+				AA0100100000000000000001 /* SchedulePlanner.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0400010000000000000001 /* TeachersTimetable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0500020000000000000001 /* Build configuration list for PBXNativeTarget "TeachersTimetable" */;
+			buildPhases = (
+				AA0300010000000000000001 /* Sources */,
+				AA0300020000000000000001 /* Frameworks */,
+				AA0300030000000000000001 /* Resources */,
+				AA0300040000000000000001 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA0400030000000000000001 /* PBXTargetDependency */,
+			);
+			name = TeachersTimetable;
+			productName = TeachersTimetable;
+			productReference = AA0100050000000000000001 /* TeachersTimetable.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA0400020000000000000001 /* TeachersTimetable Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0500030000000000000001 /* Build configuration list for PBXNativeTarget "TeachersTimetable Watch App" */;
+			buildPhases = (
+				AA0300050000000000000001 /* Sources */,
+				AA0300060000000000000001 /* Frameworks */,
+				AA0300080000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TeachersTimetable Watch App";
+			productName = "$(TARGET_NAME)";
+			productReference = AA0100060000000000000001 /* TeachersTimetable Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					AA0400010000000000000001 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					AA0400020000000000000001 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = AA0500010000000000000001 /* Build configuration list for PBXProject "TeachersTimetable" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000002;
+			productRefGroup = AA0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0400010000000000000001 /* TeachersTimetable */,
+				AA0400020000000000000001 /* TeachersTimetable Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0300030000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA02000F0000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0300080000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0200140000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0300010000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0200010000000000000001 /* TeachersTimetableApp.swift in Sources */,
+				AA0200020000000000000001 /* ContentView.swift in Sources */,
+				AA0200070000000000000001 /* OverviewTabView.swift in Sources */,
+				AA0200080000000000000001 /* EditorTabView.swift in Sources */,
+				AA0200090000000000000001 /* SettingsTabView.swift in Sources */,
+				AA02000A0000000000000001 /* Components.swift in Sources */,
+				AA02000B0000000000000001 /* TimetableStore.swift in Sources */,
+				AA02000C0000000000000001 /* WatchConnectivityBridge.swift in Sources */,
+				AA02000D0000000000000001 /* TimetableModels.swift in Sources */,
+				AA02000E0000000000000001 /* SchedulePlanner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0300050000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0200030000000000000001 /* TeachersTimetableWatchApp.swift in Sources */,
+				AA0200040000000000000001 /* WatchContentView.swift in Sources */,
+				AA0200100000000000000001 /* WatchTimetableStore.swift in Sources */,
+				AA0200110000000000000001 /* WatchNotificationScheduler.swift in Sources */,
+				AA0200120000000000000001 /* TimetableModels.swift in Sources */,
+				AA0200130000000000000001 /* SchedulePlanner.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA0400030000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0400020000000000000001 /* TeachersTimetable Watch App */;
+			targetProxy = AA0400040000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AA0600010000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = auto;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA0600020000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = auto;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA0600030000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AEQL2YWGP3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "수업 알리미";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chail.classReminderClean;
+				PRODUCT_MODULE_NAME = TeachersTimetable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA0600040000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AEQL2YWGP3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "수업 알리미";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chail.classReminderClean;
+				PRODUCT_MODULE_NAME = TeachersTimetable;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA0600050000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AEQL2YWGP3;
+				ENABLE_DEBUG_DYLIB = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "TeachersTimetable Watch App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chail.classReminderClean.watchapp;
+				PRODUCT_MODULE_NAME = TeachersTimetableWatchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WK_COMPANION_APP_BUNDLE_IDENTIFIER = com.chail.classReminderClean;
+			};
+			name = Debug;
+		};
+		AA0600060000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AEQL2YWGP3;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "TeachersTimetable Watch App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chail.classReminderClean.watchapp;
+				PRODUCT_MODULE_NAME = TeachersTimetableWatchApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				WK_COMPANION_APP_BUNDLE_IDENTIFIER = com.chail.classReminderClean;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0500010000000000000001 /* Build configuration list for PBXProject "TeachersTimetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0600010000000000000001 /* Debug */,
+				AA0600020000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0500020000000000000001 /* Build configuration list for PBXNativeTarget "TeachersTimetable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0600030000000000000001 /* Debug */,
+				AA0600040000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0500030000000000000001 /* Build configuration list for PBXNativeTarget "TeachersTimetable Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0600050000000000000001 /* Debug */,
+				AA0600060000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA0000000000000000000001 /* Project object */;
+}

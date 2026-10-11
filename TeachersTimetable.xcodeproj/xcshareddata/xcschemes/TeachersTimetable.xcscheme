@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2640"
+   LastUpgradeVersion = "2700"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -18,20 +18,6 @@
                BlueprintIdentifier = "AA0400010000000000000001"
                BuildableName = "TeachersTimetable.app"
                BlueprintName = "TeachersTimetable"
-               ReferencedContainer = "container:TeachersTimetable.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA0400020000000000000001"
-               BuildableName = "TeachersTimetable Watch App.app"
-               BlueprintName = "TeachersTimetable Watch App"
                ReferencedContainer = "container:TeachersTimetable.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

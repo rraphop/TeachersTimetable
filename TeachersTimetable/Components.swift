@@ -64,9 +64,39 @@ struct AppThemePalette {
     let accentTint: Color
 }
 
+private func adaptiveThemeColor(light: ThemeColorData, dark: ThemeColorData) -> Color {
+#if canImport(UIKit)
+    Color(uiColor: UIColor { traits in
+        let color = traits.userInterfaceStyle == .dark ? dark : light
+        return UIColor(
+            red: CGFloat(color.red),
+            green: CGFloat(color.green),
+            blue: CGFloat(color.blue),
+            alpha: CGFloat(color.opacity)
+        )
+    })
+#else
+    light.swiftUIColor
+#endif
+}
+
+private func adaptiveOrange(lightOpacity: Double, darkOpacity: Double) -> Color {
+#if canImport(UIKit)
+    Color(uiColor: UIColor { traits in
+        UIColor.systemOrange
+            .resolvedColor(with: traits)
+            .withAlphaComponent(CGFloat(traits.userInterfaceStyle == .dark ? darkOpacity : lightOpacity))
+    })
+#else
+    Color.orange.opacity(lightOpacity)
+#endif
+}
+
 extension TeacherSettings {
     var preferredThemeColorScheme: ColorScheme? {
         switch themeMode {
+        case .system:
+            return nil
         case .light:
             return .light
         case .dark:
@@ -78,6 +108,65 @@ extension TeacherSettings {
 
     var appTheme: AppThemePalette {
         switch themeMode {
+        case .system:
+            return AppThemePalette(
+                backgroundGradient: LinearGradient(
+                    colors: [
+                        adaptiveThemeColor(
+                            light: ThemeColorData(red: 0.98, green: 0.95, blue: 0.91, opacity: 1),
+                            dark: ThemeColorData(red: 0.12, green: 0.14, blue: 0.19, opacity: 1)
+                        ),
+                        adaptiveThemeColor(
+                            light: ThemeColorData(red: 0.91, green: 0.95, blue: 0.99, opacity: 1),
+                            dark: ThemeColorData(red: 0.18, green: 0.22, blue: 0.29, opacity: 1)
+                        )
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                cardBackground: adaptiveThemeColor(
+                    light: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.9),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.10)
+                ),
+                cardStroke: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0, green: 0, blue: 0, opacity: 0.06),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.09)
+                ),
+                panelFill: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.95, green: 0.96, blue: 0.98, opacity: 1),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.08)
+                ),
+                headerFill: adaptiveThemeColor(
+                    light: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.7),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.12)
+                ),
+                primaryText: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.11, green: 0.13, blue: 0.18, opacity: 1),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.96)
+                ),
+                secondaryText: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.11, green: 0.13, blue: 0.18, opacity: 0.65),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.72)
+                ),
+                tertiaryText: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.11, green: 0.13, blue: 0.18, opacity: 0.45),
+                    dark: ThemeColorData(red: 1, green: 1, blue: 1, opacity: 0.50)
+                ),
+                shadowColor: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0, green: 0, blue: 0, opacity: 0.06),
+                    dark: ThemeColorData(red: 0, green: 0, blue: 0, opacity: 0.28)
+                ),
+                lunchFill: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.99, green: 0.95, blue: 0.83, opacity: 1),
+                    dark: ThemeColorData(red: 0.33, green: 0.28, blue: 0.17, opacity: 1)
+                ),
+                lunchBannerFill: adaptiveThemeColor(
+                    light: ThemeColorData(red: 0.99, green: 0.96, blue: 0.87, opacity: 1),
+                    dark: ThemeColorData(red: 0.40, green: 0.32, blue: 0.18, opacity: 1)
+                ),
+                lunchBorder: adaptiveOrange(lightOpacity: 0.18, darkOpacity: 0.28),
+                accentTint: Color.orange
+            )
         case .light:
             return AppThemePalette(
                 backgroundGradient: LinearGradient(
@@ -231,16 +320,16 @@ struct PeriodGridCell: View {
     @EnvironmentObject private var store: TimetableStore
     let entry: TimetableEntry?
     let width: CGFloat
+    var isTemporary = false
+    var isDropTargeted = false
+    var themeOverride: AppThemePalette?
 
     var body: some View {
-        let theme = store.settings.appTheme
+        let theme = themeOverride ?? store.settings.appTheme
 
         ZStack(alignment: .topLeading) {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(entry?.color.swiftUIColor.opacity(0.18) ?? theme.panelFill)
-
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(entry?.color.swiftUIColor.opacity(0.35) ?? theme.cardStroke, lineWidth: 1)
+                .fill(cellFill(theme: theme))
 
             VStack(alignment: .leading, spacing: 6) {
                 if let entry {
@@ -255,7 +344,39 @@ struct PeriodGridCell: View {
                 }
             }
             .padding(10)
+
+            if isTemporary {
+                Image(systemName: "arrow.triangle.2.circlepath")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(entry?.color.swiftUIColor ?? theme.accentTint)
+                    .padding(7)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                    .accessibilityLabel("임시 변경된 수업")
+            }
         }
         .frame(width: width, height: 80)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(cellStroke(theme: theme), lineWidth: isDropTargeted ? 2 : 1)
+        )
+        .scaleEffect(isDropTargeted ? 1.02 : 1)
+        .animation(.easeInOut(duration: 0.16), value: isDropTargeted)
+        .accessibilityHint(entry == nil ? "수업을 이 칸으로 끌어놓아 임시 이동합니다." : "수업을 다른 칸으로 끌어 임시 이동할 수 있습니다.")
+    }
+
+    private func cellFill(theme: AppThemePalette) -> Color {
+        if isDropTargeted {
+            return theme.accentTint.opacity(0.16)
+        }
+
+        return entry?.color.swiftUIColor.opacity(0.18) ?? theme.panelFill
+    }
+
+    private func cellStroke(theme: AppThemePalette) -> Color {
+        if isDropTargeted {
+            return theme.accentTint.opacity(0.82)
+        }
+
+        return entry?.color.swiftUIColor.opacity(0.35) ?? theme.cardStroke
     }
 }

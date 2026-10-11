@@ -57,7 +57,7 @@ enum SchedulePlanner {
     static func periodSlots(settings: TeacherSettings) -> [PeriodSlot] {
         var slots: [PeriodSlot] = []
         let lunchStart = settings.lunchStartMinutes
-        let lunchEnd = max(settings.lunchEndMinutes, lunchStart)
+        let lunchEnd = settings.lunchEndMinutes
 
         if settings.zeroPeriodEnabled {
             let zeroStart = settings.zeroPeriodStartMinutes
@@ -72,9 +72,12 @@ enum SchedulePlanner {
 
         var cursor = settings.firstPeriodStartMinutes
         for period in 1...max(settings.highestPeriod, 1) {
-            if cursor >= lunchStart && cursor < lunchEnd {
-                cursor = lunchEnd
-            }
+            cursor = startAvoidingLunchOverlap(
+                from: cursor,
+                duration: settings.classDuration,
+                lunchStart: lunchStart,
+                lunchEnd: lunchEnd
+            )
 
             let end = cursor + settings.classDuration
             slots.append(
@@ -120,13 +123,16 @@ enum SchedulePlanner {
             )
         }
 
-        if settings.afterSchoolEnabled && settings.afterSchoolEndMinutes > settings.afterSchoolStartMinutes {
+        if
+            settings.afterSchoolEnabled,
+            let afterSchoolSchedule = settings.afterSchoolSchedule(for: day),
+            afterSchoolSchedule.isValid {
             bands.append(
                 DayBand(
                     title: "방과후",
                     subtitle: "방과후 수업 가능 시간",
-                    startMinutes: settings.afterSchoolStartMinutes,
-                    endMinutes: settings.afterSchoolEndMinutes,
+                    startMinutes: afterSchoolSchedule.startMinutes,
+                    endMinutes: afterSchoolSchedule.endMinutes,
                     kind: .afterSchool
                 )
             )
@@ -156,6 +162,18 @@ enum SchedulePlanner {
             }
             .sorted { $0.1.startMinutes < $1.1.startMinutes }
 
+        if isDuringLunch(minutes: minutes, settings: settings) {
+            let nextEntry = scheduledEntries.first(where: { $0.1.startMinutes >= settings.lunchEndMinutes })
+            return CurrentPeriodState(
+                headline: "점심시간",
+                detail: timeRangeText(start: settings.lunchStartMinutes, end: settings.lunchEndMinutes),
+                currentPeriodLabel: "점심",
+                nextLine: nextEntry.map {
+                    "다음: \($0.0.periodLabel) \($0.0.subject) \(timeRangeText(start: $0.1.startMinutes, end: $0.1.endMinutes))"
+                }
+            )
+        }
+
         if let active = scheduledEntries.first(where: { minutes >= $0.1.startMinutes && minutes < $0.1.endMinutes }) {
             let nextEntry = scheduledEntries.first(where: { $0.1.startMinutes >= active.1.endMinutes })
             return CurrentPeriodState(
@@ -168,24 +186,15 @@ enum SchedulePlanner {
             )
         }
 
-        if minutes >= settings.lunchStartMinutes && minutes < settings.lunchEndMinutes {
-            let nextEntry = scheduledEntries.first(where: { $0.1.startMinutes >= settings.lunchEndMinutes })
-            return CurrentPeriodState(
-                headline: "점심시간",
-                detail: timeRangeText(start: settings.lunchStartMinutes, end: settings.lunchEndMinutes),
-                currentPeriodLabel: "점심",
-                nextLine: nextEntry.map {
-                    "다음: \($0.0.periodLabel) \($0.0.subject) \(timeRangeText(start: $0.1.startMinutes, end: $0.1.endMinutes))"
-                }
-            )
-        }
-
-        if settings.afterSchoolEnabled &&
-            minutes >= settings.afterSchoolStartMinutes &&
-            minutes < settings.afterSchoolEndMinutes {
+        if
+            settings.afterSchoolEnabled,
+            let afterSchoolSchedule = settings.afterSchoolSchedule(for: day),
+            afterSchoolSchedule.isValid,
+            minutes >= afterSchoolSchedule.startMinutes,
+            minutes < afterSchoolSchedule.endMinutes {
             return CurrentPeriodState(
                 headline: "방과후 시간",
-                detail: timeRangeText(start: settings.afterSchoolStartMinutes, end: settings.afterSchoolEndMinutes),
+                detail: timeRangeText(start: afterSchoolSchedule.startMinutes, end: afterSchoolSchedule.endMinutes),
                 currentPeriodLabel: "방과후",
                 nextLine: nil
             )
@@ -245,5 +254,27 @@ enum SchedulePlanner {
         ]
             .filter { !$0.isEmpty }
             .joined(separator: " · ")
+    }
+
+    private static func startAvoidingLunchOverlap(
+        from startMinutes: Int,
+        duration: Int,
+        lunchStart: Int,
+        lunchEnd: Int
+    ) -> Int {
+        guard lunchEnd > lunchStart else { return startMinutes }
+
+        let endMinutes = startMinutes + duration
+        if startMinutes < lunchEnd && endMinutes > lunchStart {
+            return lunchEnd
+        }
+
+        return startMinutes
+    }
+
+    private static func isDuringLunch(minutes: Int, settings: TeacherSettings) -> Bool {
+        settings.lunchEndMinutes > settings.lunchStartMinutes &&
+            minutes >= settings.lunchStartMinutes &&
+            minutes < settings.lunchEndMinutes
     }
 }

@@ -1,23 +1,26 @@
 # TeachersTimetable
 
-SwiftUI iPhone app + Apple Watch companion app for "수업 알리미".
+SwiftUI iPhone app for "수업 알리미".
+
+## Releases
+
+- [`v1.0-build.5`](https://github.com/rraphop/TeachersTimetable/releases/tag/v1.0-build.5): current iPhone app, version 1.0 (build 5).
+- [`v1.0-build.1`](https://github.com/rraphop/TeachersTimetable/releases/tag/v1.0-build.1): archived iPhone + Apple Watch app, version 1.0 (build 1).
+
+Each tag contains its matching Xcode project at the repository root. Releases provide source code, not a signed IPA. Only the two available source snapshots are published; builds 2–4 are unavailable. See [CHANGELOG.md](CHANGELOG.md) for details.
 
 ## Targets
 
 - `TeachersTimetable`: iPhone app
-- `TeachersTimetable Watch App`: watchOS SwiftUI app embedded in the iPhone app
 
 ## Bundle Identifiers
 
-- iPhone app: `com.chail.classReminderClean`
-- Watch app: `com.chail.classReminderClean.watchapp`
-
-The previous Watch App Extension target has been removed. The Watch app now builds as a single extensionless watchOS app target with its own SwiftUI `@main` entry point.
+- iPhone app: `com.chail.TeachersTimetable`
 
 ## Build Notes
 
-Open `TeachersTimetable.xcodeproj`, select your signing team for both targets, and keep Automatically manage signing enabled.
+Open `TeachersTimetable.xcodeproj`, select your signing team for the iPhone target, and keep Automatically manage signing enabled.
 
-The migrated app keeps the original timetable UI, UserDefaults-based snapshot storage, UserNotifications scheduling, and WatchConnectivity synchronization flow. No App Groups, SwiftData, CloudKit, or unrelated architecture changes were added.
+The app keeps the original timetable UI, UserDefaults-based snapshot storage, and UserNotifications scheduling flow. No App Groups, SwiftData, CloudKit, or unrelated architecture changes are used.
 
-For install verification, delete "수업 알리미" from both iPhone and Apple Watch, run Clean Build Folder, install the iPhone target on the physical iPhone, then install the Watch app from the iPhone Watch app.
+For install verification, delete "수업 알리미" from the iPhone, run Clean Build Folder, then install the iPhone target on the physical iPhone.

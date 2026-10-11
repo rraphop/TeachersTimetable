@@ -1,4 +1,5 @@
 import SwiftUI
+import AudioToolbox
 import UserNotifications
 
 @main
@@ -29,6 +30,9 @@ private final class NotificationPresentationDelegate: NSObject, UNUserNotificati
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
+        if notification.request.identifier.hasPrefix("timetable.ios.") {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        }
         completionHandler([.banner, .list, .sound, .badge])
     }
 }
